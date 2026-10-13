@@ -4,7 +4,7 @@ def compare_entities(base: tuple[Entity, ...], candidate: tuple[Entity, ...]) ->
     base_map = {e.tag: e for e in base}
     candidate_map = {e.tag: e for e in candidate}
     added = sorted(set(candidate_map) - set(base_map))
-    removed = []
+    removed = sorted(set(base_map) - set(candidate_map))
     modified = []
     for tag in sorted(set(base_map) & set(candidate_map)):
         b, c = base_map[tag], candidate_map[tag]
