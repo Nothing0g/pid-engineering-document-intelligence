@@ -1,0 +1,24 @@
+{
+  "synthetic": true,
+  "checks": {
+    "entity_count_is_five": true,
+    "all_entities_have_source_evidence": true,
+    "added_instrument_detected": true,
+    "removed_instrument_detected": true,
+    "dangling_connection_flagged": true,
+    "answer_has_evidence": true,
+    "unknown_question_abstains": true
+  },
+  "metrics": {
+    "entity_count": 5,
+    "revision_changes": 2,
+    "validation_issue_count": 1,
+    "answer_latency_ms": 0.044,
+    "evaluation_runtime_ms": 0.223
+  },
+  "limitations": [
+    "Synthetic SVG and metadata are not a benchmark for arbitrary scanned P&IDs.",
+    "The current extractor is a deterministic adapter; OCR and symbol recognition are extension points.",
+    "Engineering rules require review against project-specific standards."
+  ]
+}
