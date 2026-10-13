@@ -1,0 +1,33 @@
+.FF...                                                                   [100%]
+=================================== FAILURES ===================================
+____________________________ test_compare_contract _____________________________
+
+    def test_compare_contract():
+        response = client.get('/documents/compare?base=rev-a&candidate=rev-b')
+        assert response.status_code == 200
+>       assert response.json()['entity_changes']['removed'] == ['PT-101']
+E       AssertionError: assert [] == ['PT-101']
+E         
+E         Right contains one more item: 'PT-101'
+E         Use -v to get more diff
+
+tests/test_api.py:11: AssertionError
+_____________ test_revision_change_detects_instrument_replacement ______________
+
+    def test_revision_change_detects_instrument_replacement():
+        result = PidService(DocumentStore(DATA_PATH)).compare('rev-a','rev-b')
+        changes = result['entity_changes']
+        assert changes['added'] == ['FT-101']
+>       assert changes['removed'] == ['PT-101']
+E       AssertionError: assert [] == ['PT-101']
+E         
+E         Right contains one more item: 'PT-101'
+E         Use -v to get more diff
+
+tests/test_compare.py:9: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_api.py::test_compare_contract - AssertionError: assert [] =...
+FAILED tests/test_compare.py::test_revision_change_detects_instrument_replacement
+2 failed, 4 passed in 1.03s
+
+Exit status: 1
