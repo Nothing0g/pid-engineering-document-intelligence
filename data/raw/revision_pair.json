@@ -1,0 +1,51 @@
+{
+  "documents": {
+    "rev-a": {
+      "document_id": "P100-UTILITIES",
+      "revision": "A",
+      "page": 1,
+      "title": "Cooling water skid - synthetic P&ID"
+    },
+    "rev-b": {
+      "document_id": "P100-UTILITIES",
+      "revision": "B",
+      "page": 1,
+      "title": "Cooling water skid - synthetic P&ID"
+    }
+  },
+  "entities": {
+    "rev-a": [
+      {"tag":"TK-101","type":"tank","label":"Cooling Water Tank","bbox":[0.08,0.36,0.18,0.52],"source_text":"TK-101 Cooling Water Tank","confidence":0.99},
+      {"tag":"P-101","type":"pump","label":"Cooling Water Pump","bbox":[0.29,0.40,0.38,0.49],"source_text":"P-101 Cooling Water Pump","confidence":0.98},
+      {"tag":"V-201","type":"valve","label":"Isolation Valve","bbox":[0.49,0.42,0.54,0.47],"source_text":"V-201 Isolation Valve","confidence":0.97},
+      {"tag":"E-101","type":"heat_exchanger","label":"Process Cooler","bbox":[0.66,0.34,0.79,0.53],"source_text":"E-101 Process Cooler","confidence":0.98},
+      {"tag":"PT-101","type":"instrument","label":"Discharge Pressure Transmitter","bbox":[0.42,0.19,0.54,0.28],"source_text":"PT-101 Discharge Pressure Transmitter","confidence":0.96}
+    ],
+    "rev-b": [
+      {"tag":"TK-101","type":"tank","label":"Cooling Water Tank","bbox":[0.08,0.36,0.18,0.52],"source_text":"TK-101 Cooling Water Tank","confidence":0.99},
+      {"tag":"P-101","type":"pump","label":"Cooling Water Pump","bbox":[0.29,0.40,0.38,0.49],"source_text":"P-101 Cooling Water Pump","confidence":0.98},
+      {"tag":"V-201","type":"valve","label":"Isolation Valve","bbox":[0.49,0.42,0.54,0.47],"source_text":"V-201 Isolation Valve","confidence":0.97},
+      {"tag":"E-101","type":"heat_exchanger","label":"Process Cooler","bbox":[0.66,0.34,0.79,0.53],"source_text":"E-101 Process Cooler","confidence":0.98},
+      {"tag":"FT-101","type":"instrument","label":"Cooling Water Flow Transmitter","bbox":[0.42,0.19,0.54,0.28],"source_text":"FT-101 Cooling Water Flow Transmitter","confidence":0.94}
+    ]
+  },
+  "connections": {
+    "rev-a": [
+      {"from":"TK-101","to":"P-101","line":"L-200","label":"suction"},
+      {"from":"P-101","to":"V-201","line":"L-201","label":"discharge"},
+      {"from":"V-201","to":"E-101","line":"L-201","label":"cooling-water"},
+      {"from":"P-101","to":"PT-101","line":"I-101","label":"instrument-signal"}
+    ],
+    "rev-b": [
+      {"from":"TK-101","to":"P-101","line":"L-200","label":"suction"},
+      {"from":"P-101","to":"V-201","line":"L-201","label":"discharge"},
+      {"from":"V-201","to":"E-101","line":"L-201","label":"cooling-water"},
+      {"from":"P-101","to":"FT-101","line":"I-101","label":"instrument-signal"}
+    ]
+  },
+  "validation_cases": {
+    "rev-b": [
+      {"from":"E-101","to":"MISSING-901","line":"L-999","label":"unresolved-branch"}
+    ]
+  }
+}

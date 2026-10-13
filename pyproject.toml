@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pid-engineering-document-intelligence"
+version = "0.1.0"
+description = "Revision-aware P&ID intelligence with structured extraction, graph validation, and evidence-linked answers"
+requires-python = ">=3.10"
+dependencies = ["fastapi>=0.100", "uvicorn>=0.22"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "httpx>=0.25"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
